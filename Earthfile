@@ -1,5 +1,5 @@
 VERSION --use-project-secrets --use-pipelines 0.6
-PROJECT earthly-technologies/cloud
+PROJECT jalletto/benchmarks
 
 satellite-4-pipeline:
   PIPELINE
