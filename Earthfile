@@ -1,11 +1,11 @@
-VERSION --use-project-secrets --use-pipelines 0.6
+VERSION 0.7
 PROJECT jalletto/benchmarks
 
-FROM ubuntu:latest
+FROM --platform linux/amd64 debian:testing
 
-satellite-4-pipeline:
+build:
   PIPELINE
   TRIGGER manual
   TRIGGER pr main
   TRIGGER push main
-  RUN echo hello Josh
+  BUILD ./docker+run-base64

@@ -3,3 +3,5 @@
 target/
 .DS_Store
 zig-cache/
+earthly
+.earthly_version_flag_overrides
