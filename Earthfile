@@ -1,7 +1,7 @@
 VERSION 0.7
 PROJECT jalletto/benchmarks
 
-FROM --platform linux/amd64 debian:testing
+# FROM debian:testing
 
 build:
   PIPELINE
