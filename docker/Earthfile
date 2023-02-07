@@ -216,7 +216,7 @@ build-benchmarks:
   # https://download.racket-lang.org/
   ARG RACKET=8.7
   RUN curl -o racket-$RACKET-x86_64-linux-cs.sh \
-      https://www.cs.utah.edu/plt/installers/$RACKET/racket-$RACKET-x86_64-linux-cs.sh \
+      https://www-old.cs.utah.edu/plt/installers/8.7/racket-8.7-x86_64-linux-natipkg-cs.sh \
       && sh racket-$RACKET-x86_64-linux-cs.sh --unix-style --dest /home/dev/ \
       && rm racket-$RACKET-x86_64-linux-cs.sh
 
