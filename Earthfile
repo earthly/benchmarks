@@ -6,6 +6,6 @@ FROM --platform linux/amd64 debian:testing
 build:
   PIPELINE
   TRIGGER manual
-  TRIGGER pr main
-  TRIGGER push main
+  TRIGGER pr master
+  TRIGGER push master
   BUILD ./docker+run-base64

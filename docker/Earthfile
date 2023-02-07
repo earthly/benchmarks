@@ -1,13 +1,13 @@
 VERSION 0.7
-PROJECT jalletto/benchmarks
+# PROJECT jalletto/benchmarks
 
-FROM --platform linux/amd64 debian:testing
+# FROM --platform linux/amd64 debian:testing
 
-build:
-  PIPELINE
-  TRIGGER manual
-  TRIGGER pr main
-  TRIGGER push main
+# build:
+#   PIPELINE
+#   TRIGGER manual
+#   TRIGGER pr main
+#   TRIGGER push main
 
 run-base64:
   FROM earthly/dind:alpine
