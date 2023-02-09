@@ -16,7 +16,7 @@ run-base64:
   END
 
 build-benchmarks:
-  FROM debian:testing
+  FROM --platform linux/amd64 debian:testing
   ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 \
       DEBIAN_FRONTEND=noninteractive
   COPY ./apt.pkgs /tmp/apt.pkgs
@@ -35,7 +35,7 @@ build-benchmarks:
   USER dev
   RUN mkdir /home/dev/bin
   WORKDIR /home/dev/bin
-  CMD ["/bin/bash", "-o", "pipefail", "-c"]
+  RUN ["/bin/bash", "-o", "pipefail", "-c"]
   ENV PATH="/home/dev/bin/:/home/dev/.local/bin/:${PATH}" \
       JQ_LIB_DIR=/usr/lib/x86_64-linux-gnu/ \
       LC_ALL=en_US.UTF-8 \
@@ -251,7 +251,7 @@ build-benchmarks:
   ENV PATH="/home/dev/bin/luajit/bin:${PATH}"
 
   ARG SCRIPTS_VER=unknown
-  COPY *.rb ./
+  COPY ./*.rb ./
 
   RUN ./versions.rb
 
