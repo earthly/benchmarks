@@ -5,7 +5,7 @@ filename = ARGV[0]
 pkgs = File.readlines(filename).map { |l| l.split('=')[0].strip }
 list = pkgs.join(' ')
 img = 'debian:testing'
-pkg_info = `docker run --rm #{img} /bin/sh -c "apt-get update && apt-cache show #{list}"`
+pkg_info = `docker run --platform linux/amd64 --rm #{img} /bin/sh -c "apt-get update && apt-cache show #{list}"`
 
 versions = {}
 pkg = nil
