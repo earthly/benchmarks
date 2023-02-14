@@ -12,7 +12,7 @@ VERSION 0.6
 run-base64:
   FROM earthly/dind:alpine
   WITH DOCKER --load benchmark-tests:latest=+build-benchmarks
-    RUN docker run benchmark-tests:latest base64
+    RUN docker run -it --rm -v $(pwd):/src benchmark-tests:latest base64
   END
 
 build-benchmarks:
