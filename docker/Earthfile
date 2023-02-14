@@ -253,7 +253,7 @@ build-benchmarks:
   ARG SCRIPTS_VER=unknown
   COPY ./*.rb ./
 
-  RUN ./versions.rb
+  # RUN ./versions.rb
 
   ENTRYPOINT ["./run.rb"]
 
