@@ -1,4 +1,4 @@
-VERSION 0.7
+VERSION 0.6
 # PROJECT jalletto/benchmarks
 
 # 
@@ -20,7 +20,7 @@ build-benchmarks:
   ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 \
       DEBIAN_FRONTEND=noninteractive
   COPY ./apt.pkgs /tmp/apt.pkgs
-  RUN apt-get update && xargs apt-get install -y < /tmp/apt.pkgs \
+  RUN apt-get update && xargs apt-get install -f -y < /tmp/apt.pkgs \
       && rm -rf /var/lib/apt/lists/*
 
   RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
@@ -35,7 +35,7 @@ build-benchmarks:
   USER dev
   RUN mkdir /home/dev/bin
   WORKDIR /home/dev/bin
-  RUN ["/bin/bash", "-o", "pipefail", "-c"]
+  RUN /bin/bash -o pipefail -c
   ENV PATH="/home/dev/bin/:/home/dev/.local/bin/:${PATH}" \
       JQ_LIB_DIR=/usr/lib/x86_64-linux-gnu/ \
       LC_ALL=en_US.UTF-8 \
