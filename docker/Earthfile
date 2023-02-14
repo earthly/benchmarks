@@ -35,7 +35,7 @@ build-benchmarks:
   USER dev
   RUN mkdir /home/dev/bin
   WORKDIR /home/dev/bin
-  RUN /bin/bash -o pipefail -c
+  RUN /bin/bash -o pipefail
   ENV PATH="/home/dev/bin/:/home/dev/.local/bin/:${PATH}" \
       JQ_LIB_DIR=/usr/lib/x86_64-linux-gnu/ \
       LC_ALL=en_US.UTF-8 \
