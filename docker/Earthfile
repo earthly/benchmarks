@@ -12,7 +12,7 @@ VERSION 0.6
 run-base64:
   FROM earthly/dind:alpine
   WITH DOCKER --load benchmark-tests:latest=+build-benchmarks
-    RUN docker run -it --rm -v $(pwd):/src benchmarks base64
+    RUN docker run benchmark-tests:latest base64
   END
 
 build-benchmarks:
@@ -252,7 +252,8 @@ build-benchmarks:
 
   ARG SCRIPTS_VER=unknown
   COPY ./*.rb ./
-
+  
+  # I think all this does is print the versions and it's not working for some reason.
   # RUN ./versions.rb
 
   ENTRYPOINT ["./run.rb"]
