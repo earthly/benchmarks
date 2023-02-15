@@ -3,7 +3,7 @@ FROM debian:testing
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 \
     DEBIAN_FRONTEND=noninteractive
 COPY ./apt.pkgs /tmp/apt.pkgs
-RUN apt-get update && xargs apt-get install -y < /tmp/apt.pkgs \
+RUN apt-get update && xargs apt-get install -f -y < /tmp/apt.pkgs \
     && rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
