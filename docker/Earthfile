@@ -12,7 +12,7 @@ VERSION 0.7
 run-base64:
   FROM earthly/dind:alpine
   WITH DOCKER --load benchmark-tests:latest=+build-benchmarks
-    RUN docker run -it --rm -v $(pwd):/src benchmark-tests:latest
+    RUN docker run -i --rm -v $(pwd):/src benchmark-tests:latest base64 bench
   END
 
 build-benchmarks:
@@ -256,8 +256,7 @@ build-benchmarks:
   # I think all this does is print the versions and it's not working for some reason.
   # RUN ./versions.rb
 
-  # ENTRYPOINT ["./run.rb"]
-  ENTRYPOINT ["cd", "/src/base64", "&&", "make", "run"]
+  ENTRYPOINT ["/bin/bash","-c", "./run.rb"]
 
   RUN cat /etc/os-release
   SAVE IMAGE benchmark-tests:latest
