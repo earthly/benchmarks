@@ -1,8 +1,6 @@
 VERSION 0.7
 PROJECT jalletto/benchmarks
 
-# FROM debian:testing
-
 build:
   PIPELINE
   TRIGGER manual
