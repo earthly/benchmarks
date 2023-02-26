@@ -18,7 +18,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
 USER dev
 RUN mkdir /home/dev/bin
 WORKDIR /home/dev/bin
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash"]
 ENV PATH="/home/dev/bin/:/home/dev/.local/bin/:${PATH}" \
     JQ_LIB_DIR=/usr/lib/x86_64-linux-gnu/ \
     LC_ALL=en_US.UTF-8 \
@@ -114,8 +114,8 @@ RUN curl \
 # https://julialang.org/downloads/
 ARG JULIA=julia-1.8.3
 RUN curl \
-    https://julialang-s3.julialang.org/bin/linux/x64/1.8/$JULIA-linux-x86_64.tar.gz \
-    | tar -xf
+    https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.3-linux-x86_64.tar.gz \
+    | tar -xz
 ENV PATH="/home/dev/bin/$JULIA/bin/:${PATH}"
 
 # https://clojure.org/guides/install_clojure
