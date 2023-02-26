@@ -18,7 +18,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
 USER dev
 RUN mkdir /home/dev/bin
 WORKDIR /home/dev/bin
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail"]
 ENV PATH="/home/dev/bin/:/home/dev/.local/bin/:${PATH}" \
     JQ_LIB_DIR=/usr/lib/x86_64-linux-gnu/ \
     LC_ALL=en_US.UTF-8 \
@@ -111,15 +111,15 @@ RUN curl \
     | tar -xz \
     && ln -s /home/dev/bin/jruby-$JRUBY/bin/jruby /home/dev/bin/jruby
 
-SHELL ["/bin/bash"]
+# SHELL ["/bin/bash"]
 # https://julialang.org/downloads/
 ARG JULIA=julia-1.8.3
-RUN curl \
+RUN sudo curl \
     https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.3-linux-x86_64.tar.gz \
     | tar -xz
 ENV PATH="/home/dev/bin/$JULIA/bin/:${PATH}"
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+# SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # https://clojure.org/guides/install_clojure
 ARG CLOJURE=1.11.1.1200
 RUN curl \
