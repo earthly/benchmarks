@@ -132,4 +132,5 @@ libnotify:
 target:
 	whoami
 	pwd
-	mkdir target
+	chown -R $USER:$USER /src/base64
+	mkdir -p ./target
