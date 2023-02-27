@@ -46,8 +46,7 @@ cp $^ target && cd target && ocamlopt -O3 -unsafe unix.cmxa $^ -o $(@F)
 endef
 
 define CARGO_BUILD =
-cargo fmt --manifest-path $<
-cargo clippy -q --manifest-path $<
+
 RUSTFLAGS="$(RUSTC_FLAGS)" cargo build -q --manifest-path $< --release
 endef
 
