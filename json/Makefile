@@ -72,7 +72,6 @@ artifacts := $(executables) \
 	json-scala/target/application.jar
 
 all_runners := $(patsubst %,run[%], $(artifacts)) \
-	run[test.jl] \
 	run[test_yajl.rb] \
 	run[test.pl] \
 	run[test-xs.pl] \
@@ -88,7 +87,8 @@ all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[test.php] \
 	run[test.clj]
 
-# Build
+
+# Build 	run[test.jl]
 
 .PHONY: build
 build: $(artifacts)
@@ -355,8 +355,8 @@ executable_runners := $(patsubst %,run[%], $(executables))
 $(executable_runners):: run[%] : %
 	$(EXECUTABLE_RUN)
 
-run[test.jl]:: run[%]: % | $(julia_fmt)
-	$(JULIA_RUN)
+# run[test.jl]:: run[%]: % | $(julia_fmt)
+# 	$(JULIA_RUN)
 
 run[target/test.exe]:: run[%]: %
 	MONO_PATH=$(newtonsoft_json_dir) $(MONO_RUN)

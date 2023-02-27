@@ -41,12 +41,13 @@ fast_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[bf.js] \
 	run[pypy][bf3.py] \
 	run[jit][bf_jit.lua] \
-	run[bf.rkt] \
-	run[bf-syntax.rkt] \
-	run[bf.ss] \
 	run[truby-jvm][bf.rb] \
 	run[truby-native][bf.rb] \
-	run[bf.jl]
+
+
+# run[bf.jl]
+# run[bf.rkt]
+# run[bf-syntax.rkt]
 
 all_runners := $(fast_runners) \
 	run[bf.ex] \
@@ -230,17 +231,17 @@ run[bf.tcl]:: run[%]: %
 run[bf_oo.tcl]:: run[%]: %
 	$(TCLSH_RUN) $(BF_SRC)
 
-run[bf.rkt]:: run[%]: %
-	$(RACKET_RUN) $(BF_SRC)
+# run[bf.rkt]:: run[%]: %
+# 	$(RACKET_RUN) $(BF_SRC)
 
-run[bf-syntax.rkt]:: run[%]: %
-	$(RACKET_RUN) $(BF_SRC)
+# run[bf-syntax.rkt]:: run[%]: %
+# 	$(RACKET_RUN) $(BF_SRC)
 
-run[bf.ss]:: run[%]: % | libnotify
-	$(SCHEME_RUN) $(BF_SRC)
+# run[bf.ss]:: run[%]: % | libnotify
+# 	$(SCHEME_RUN) $(BF_SRC)
 
-run[bf.jl]:: run[%]: % | $(julia_fmt)
-	$(JULIA_RUN) $(BF_SRC)
+# run[bf.jl]:: run[%]: % | $(julia_fmt)
+# 	$(JULIA_RUN) $(BF_SRC)
 
 # Utilities
 

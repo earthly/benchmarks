@@ -46,9 +46,6 @@ artifacts := $(executables) \
 
 all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[matmul.js] \
-	run[matmul-native.jl] \
-	run[single_thread][matmul-native.jl] \
-	run[matmul.jl] \
 	run[pypy][matmul.py] \
 	run[matmul.py] \
 	run[matmul-numpy.py] \
@@ -60,7 +57,11 @@ all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[truby-native][matmul.rb] \
 	run[jruby][matmul.rb]
 
-# Build
+# # Build
+# 	run[matmul-native.jl] \
+# 	run[single_thread][matmul-native.jl] \
+# 	run[matmul.jl] \
+
 
 .PHONY: build
 build: $(artifacts)
@@ -210,14 +211,14 @@ run[target/matmul.exe]:: run[%]: %
 run[matmul.js]:: run[%]: %
 	$(NODE_RUN) $(MSIZE)
 
-run[matmul-native.jl]:: run[%]: % | $(julia_fmt)
-	$(JULIA_RUN) $(MSIZE)
+# run[matmul-native.jl]:: run[%]: % | $(julia_fmt)
+# 	$(JULIA_RUN) $(MSIZE)
 
-run[single_thread][matmul-native.jl]:: run[single_thread][%]: % | $(julia_fmt)
-	OPENBLAS_NUM_THREADS=1 $(JULIA_RUN) $(MSIZE)
+# run[single_thread][matmul-native.jl]:: run[single_thread][%]: % | $(julia_fmt)
+# 	OPENBLAS_NUM_THREADS=1 $(JULIA_RUN) $(MSIZE)
 
-run[matmul.jl]:: run[%]: %  | $(julia_fmt)
-	$(JULIA_RUN) $(MSIZE)
+# run[matmul.jl]:: run[%]: %  | $(julia_fmt)
+# 	$(JULIA_RUN) $(MSIZE)
 
 run[pypy][matmul.py]:: run[pypy][%]: % | $(py_fmt)
 	$(PYPY3_RUN) $(MSIZE)

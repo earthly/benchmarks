@@ -89,10 +89,10 @@ $(py_fmt): *.py | target
 	black $^
 	@touch $@
 
-julia_fmt := target/.julia_fmt
-$(julia_fmt): *.jl | target
-	../common/julia/julia_fmt.jl $^
-	@touch $@
+# julia_fmt := target/.julia_fmt
+# $(julia_fmt): *.jl | target
+# 	../common/julia/julia_fmt.jl $^
+# 	@touch $@
 
 gofmt := target/.gofmt
 $(gofmt): *.go | target

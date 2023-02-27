@@ -33,7 +33,6 @@ artifacts := $(executables) \
 
 all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[test.pl] \
-	run[test.jl] \
 	run[test.js] \
 	run[pypy][test.py] \
 	run[test.py] \
@@ -46,7 +45,8 @@ all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[test.tcl] \
 	run[test.php]
 
-# Build
+	
+# Build # run[test.jl]
 
 .PHONY: build
 build: $(artifacts)
@@ -177,8 +177,8 @@ base64_perl:
 run[test.pl]:: run[%]: % | base64_perl
 	$(PERL_RUN)
 
-run[test.jl]:: run[%]: % | $(julia_fmt)
-	$(JULIA_RUN)
+# run[test.jl]:: run[%]: % | $(julia_fmt)
+# 	$(JULIA_RUN)
 
 run[test.js]:: run[%]: %
 	$(NODE_RUN)

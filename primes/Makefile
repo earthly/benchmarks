@@ -27,10 +27,10 @@ all_runners := $(patsubst %,run[%], $(artifacts)) \
 	run[jruby][primes.rb] \
 	run[primes.lua] \
 	run[primes_jit.lua] \
-	run[primes.jl]
 
 
-# Build
+# Build 	run[primes.jl]
+
 
 .PHONY: build
 build: $(artifacts)
@@ -119,8 +119,8 @@ run[primes.lua]:: run[%]: % | libnotify
 run[primes_jit.lua]:: run[%]: %
 	$(LUA_JIT_RUN)
 
-run[primes.jl]:: run[%]: % | $(julia_fmt)
-	$(JULIA_RUN)
+# run[primes.jl]:: run[%]: % | $(julia_fmt)
+# 	$(JULIA_RUN)
 
 # Utilities
 
