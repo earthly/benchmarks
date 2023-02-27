@@ -196,12 +196,12 @@ RUN curl -L -o kotlin-compiler-$KOTLIN.zip \
     && rm kotlin-compiler-$KOTLIN.zip
 ENV PATH="/home/dev/bin/kotlinc/bin/:${PATH}"
 
-# https://download.racket-lang.org/
-ARG RACKET=8.7
-RUN curl -o racket-$RACKET-x86_64-linux-cs.sh \
-    https://www.cs.utah.edu/plt/installers/$RACKET/racket-$RACKET-x86_64-linux-cs.sh \
-    && sh racket-$RACKET-x86_64-linux-cs.sh --unix-style --dest /home/dev/ \
-    && rm racket-$RACKET-x86_64-linux-cs.sh
+# # https://download.racket-lang.org/
+# ARG RACKET=8.7
+# RUN curl -o racket-8.7-x86_64-linux-cs.sh \
+#     https://www.cs.utah.edu/plt/installers/8.7/racket-8.7-x86_64-linux-cs.sh \
+#     && sh racket-$RACKET-x86_64-linux-cs.sh --unix-style --dest /home/dev/ \
+#     && rm racket-$RACKET-x86_64-linux-cs.sh
 
 # https://github.com/vlang/v/releases
 ARG VLANG=weekly.2022.50

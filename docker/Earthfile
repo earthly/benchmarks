@@ -121,11 +121,11 @@ build-benchmarks:
       && ln -s /home/dev/bin/jruby-$JRUBY/bin/jruby /home/dev/bin/jruby
 
   # https://julialang.org/downloads/
-  ARG JULIA=julia-1.8.3
-  RUN curl \
-      https://julialang-s3.julialang.org/bin/linux/x64/1.8/$JULIA-linux-x86_64.tar.gz \
-      | tar -xz
-  ENV PATH="/home/dev/bin/$JULIA/bin/:${PATH}"
+  # ARG JULIA=julia-1.8.3
+  # RUN curl \
+  #     https://julialang-s3.julialang.org/bin/linux/x64/1.8/$JULIA-linux-x86_64.tar.gz \
+  #     | tar -xz
+  # ENV PATH="/home/dev/bin/$JULIA/bin/:${PATH}"
 
   # https://clojure.org/guides/install_clojure
   ARG CLOJURE=1.11.1.1200
@@ -206,11 +206,11 @@ build-benchmarks:
   ENV PATH="/home/dev/bin/kotlinc/bin/:${PATH}"
 
   # https://download.racket-lang.org/
-  ARG RACKET=8.7
-  RUN curl -o racket-$RACKET-x86_64-linux-cs.sh \
-      https://www-old.cs.utah.edu/plt/installers/8.7/racket-8.7-x86_64-linux-natipkg-cs.sh \
-      && sh racket-$RACKET-x86_64-linux-cs.sh --unix-style --dest /home/dev/ \
-      && rm racket-$RACKET-x86_64-linux-cs.sh
+  # ARG RACKET=8.7
+  # RUN curl -o racket-$RACKET-x86_64-linux-cs.sh \
+  #     https://www-old.cs.utah.edu/plt/installers/8.7/racket-8.7-x86_64-linux-natipkg-cs.sh \
+  #     && sh racket-$RACKET-x86_64-linux-cs.sh --unix-style --dest /home/dev/ \
+  #     && rm racket-$RACKET-x86_64-linux-cs.sh
 
   # https://github.com/vlang/v/releases
   ARG VLANG=weekly.2022.50
