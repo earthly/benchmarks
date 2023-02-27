@@ -130,4 +130,4 @@ libnotify:
 	$(MAKE) -C ../common/libnotify
 
 target:
-	mkdir -p target
+	mkdir -p ./target
