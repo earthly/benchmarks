@@ -130,4 +130,6 @@ libnotify:
 	$(MAKE) -C ../common/libnotify
 
 target:
+	whoami
+	pwd
 	mkdir -p ./target
