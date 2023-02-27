@@ -182,6 +182,7 @@ ENV PATH="/home/dev/bin/go/bin/:${PATH}"
 # https://www.rust-lang.org/tools/install
 ENV CARGO_HOME="/home/dev/bin/.cargo" PATH="/home/dev/bin/.cargo/bin:${PATH}"
 RUN curl https://sh.rustup.rs | sh -s -- -y
+RUN rustup default stable
 
 # https://ocaml.org/releases/
 ARG OCAML=4.14.0
