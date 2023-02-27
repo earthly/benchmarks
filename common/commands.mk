@@ -132,4 +132,4 @@ libnotify:
 target:
 	whoami
 	pwd
-	mkdir -p ./target
+	mkdir target
