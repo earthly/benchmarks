@@ -14,6 +14,7 @@ jobs:
     steps:
       - checkout
       - run: df -h /
+      - run: chown -R $USER:$USER /src/base64
       - run: docker run -it --rm -v $(pwd):/src $DOCKER_USERNAME/benchmarks base64 bench
 
 workflows:
