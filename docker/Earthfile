@@ -248,7 +248,7 @@ build-benchmarks:
   # I think all this does is print the versions and it's not working for some reason.
   # RUN ./versions.rb
 
-  ENTRYPOINT ["/bin/bash","-c", "./run.rb"]
+  ENTRYPOINT ["./run.rb"]
 
   RUN cat /etc/os-release
   SAVE IMAGE benchmark-tests:latest
