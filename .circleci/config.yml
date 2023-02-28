@@ -19,7 +19,7 @@ jobs:
 workflows:
   build-and-run-workflow:
     jobs:
-      - build
+      - run
       # - run:
       #     requires:
       #       - build
