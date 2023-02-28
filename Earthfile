@@ -6,4 +6,4 @@ build:
   TRIGGER manual
   TRIGGER pr master
   TRIGGER push master
-  BUILD ./docker+run-base64
+  BUILD ./docker+build-benchmarks
