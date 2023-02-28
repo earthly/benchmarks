@@ -4,7 +4,7 @@ run-base64:
   FROM earthly/dind:alpine
   RUN apk update && apk add bash
   WITH DOCKER --load benchmark-tests:latest=+build-benchmarks 
-    RUN /bin/bash -c "docker run -it --rm -v $(pwd):/src benchmark-tests:latest base64"
+    RUN /bin/bash -c "docker run -t --rm -v $(pwd):/src benchmark-tests:latest base64"
   END
 
 build-benchmarks:
