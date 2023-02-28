@@ -6,6 +6,8 @@ COPY ./apt.pkgs /tmp/apt.pkgs
 RUN apt-get update && xargs apt-get install -f -y < /tmp/apt.pkgs \
     && rm -rf /var/lib/apt/lists/*
 
+RUN echo just adding something new
+
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 10 \
     && update-alternatives --install /usr/bin/gdc gdc /usr/bin/gdc-12 10 \
