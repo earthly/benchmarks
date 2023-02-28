@@ -4,7 +4,7 @@ run-base64:
   FROM earthly/dind:alpine
   RUN apk update && apk add bash
   WITH DOCKER --load benchmark-tests:latest=+build-benchmarks 
-    RUN docker run -i --rm -v $(pwd):/src benchmark-tests:latest base64
+    RUN pwd && docker run -i --rm -v $(pwd):/src benchmark-tests:latest base64
   END
 
 build-benchmarks:
@@ -248,7 +248,7 @@ build-benchmarks:
   # I think all this does is print the versions and it's not working for some reason.
   # RUN ./versions.rb
 
-  ENTRYPOINT ["/bin/bash","-c", "./run.rb base64"]
+  ENTRYPOINT ["/bin/bash","-c", "pwd", "./run.rb base64"]
 
   RUN cat /etc/os-release
   SAVE IMAGE benchmark-tests:latest
