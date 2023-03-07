@@ -121,7 +121,7 @@ RUN curl \
 #     https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.3-linux-x86_64.tar.gz \
 #     | tar -zxvf
 # ENV PATH="/home/dev/bin/$JULIA/bin/:${PATH}"
-
+RUN echo hello
 # https://clojure.org/guides/install_clojure
 ARG CLOJURE=1.11.1.1200
 RUN curl \
