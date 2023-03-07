@@ -1,5 +1,7 @@
 FROM debian:testing
 
+RUN echo hello
+
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 \
     DEBIAN_FRONTEND=noninteractive
 COPY ./apt.pkgs /tmp/apt.pkgs
